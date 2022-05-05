@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .forms import AppointmentForm
+from django.contrib import messages
 # Create your views here.
 
 
@@ -25,5 +26,17 @@ def testimonial(request):
 def appointment(request):
     if request.method == "POST":
         form = AppointmentForm(request.POST)
-        name = form.cleaned_data.get("")
-    return render(request, 'app/appointment.html')
+        name = form.cleaned_data.get("name")
+        department = form.cleaned_data.get("department")
+        email = form.cleaned_data.get("email")
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Hi {name}, your appointment has been scheduled!")
+            return redirect("/")
+    else:
+        form = AppointmentForm()
+    
+    context = {
+        "form": form
+    }
+    return render(request, 'app/appointment.html', context)
