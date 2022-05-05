@@ -20,3 +20,6 @@ def price(request):
 
 def testimonial(request):
     return render(request, 'app/testimonial.html')
+
+def appointment(request):
+    return render(request, 'app/appointment.html')
