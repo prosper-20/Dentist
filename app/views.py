@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import AppointmentForm
 # Create your views here.
 
 
@@ -22,4 +23,7 @@ def testimonial(request):
     return render(request, 'app/testimonial.html')
 
 def appointment(request):
+    if request.method == "POST":
+        form = AppointmentForm(request.POST)
+        name = form.cleaned_data.get("")
     return render(request, 'app/appointment.html')
