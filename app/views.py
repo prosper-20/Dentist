@@ -17,3 +17,6 @@ def contact(request):
 
 def price(request):
     return render(request, 'app/price.html')
+
+def testimonial(request):
+    return render(request, 'app/testimonial.html')
