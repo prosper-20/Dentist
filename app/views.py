@@ -8,3 +8,6 @@ def home(request):
 
 def about(request):
     return render(request, 'app/about.html')
+
+def service(request):
+    return render(request, 'app/service.html')
