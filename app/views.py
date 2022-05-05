@@ -11,3 +11,9 @@ def about(request):
 
 def service(request):
     return render(request, 'app/service.html')
+
+def contact(request):
+    return render(request, 'app/contact.html')
+
+def price(request):
+    return render(request, 'app/price.html')
