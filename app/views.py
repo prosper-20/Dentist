@@ -60,8 +60,6 @@ def appointment_2(request):
         messages.success(request, f"Hi {name}, your appointment has been scheduled!")
         return redirect("/")
     else:
-        form = AppointmentForm()
-    
-    return render(request, 'app/home.html')
+        return render(request, 'app/home.html')
 
 
