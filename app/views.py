@@ -26,11 +26,12 @@ def testimonial(request):
 def appointment(request):
     if request.method == "POST":
         form = AppointmentForm(request.POST)
-        name = form.cleaned_data.get("name")
-        department = form.cleaned_data.get("department")
-        email = form.cleaned_data.get("email")
         if form.is_valid():
             form.save()
+            name = form.cleaned_data.get("name")
+            department = form.cleaned_data.get("department")
+            email = form.cleaned_data.get("email")
+            
             messages.success(request, f"Hi {name}, your appointment has been scheduled!")
             return redirect("/")
     else:

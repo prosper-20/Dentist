@@ -110,12 +110,13 @@
 	                <div class="form-group">
 			              <div class="select-wrap">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="" class="form-control">
-                      	<option value="">Department</option>
-                        <option value="">Teeth Whitening</option>
-                        <option value="">Teeth CLeaning</option>
-                        <option value="">Quality Brackets</option>
-                        <option value="">Modern Anesthetic</option>
+                      <select name="department" id="" class="form-control" required id="id_department">
+                      	<!-- <option value="">Department</option> -->
+                        <option value="" selected>---------</option>
+                        <option value="Teeth Whitening">Teeth Whitening</option>
+                        <option value="Teeth Cleaning">Teeth Cleaning</option>
+                        <option value="Braces">Braces</option>
+                        <option value="Modern Anesthetic">Modern Anesthetic</option>
                       </select>
                     </div>
 			            </div>
@@ -123,13 +124,13 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-user"></span></div>
-			              <input type="text" class="form-control" id="appointment_name" placeholder="Name">
+			              <input type="text" name="name" maxlength="200" class="textinput textInput" required id="id_name" placeholder="name">
 			            </div>
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-paper-plane"></span></div>
-			              <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+			              <input type="email" name="email" maxlength="254" class="emailinput" required id="id_email" placeholder="Email">
 			            </div>
 	              </div>
 	            </div>
@@ -137,13 +138,30 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="ion-ios-calendar"></span></div>
-	                  <input type="text" class="form-control appointment_date" placeholder="Date">
+	                  <input type="text" name="date" class="dateinput" required id="id_date" placeholder="Date">
 	                </div>    
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
-	                	<div class="icon"><span class="ion-ios-clock"></span></div>
-	                  <input type="text" class="form-control appointment_time" placeholder="Time">
+                    <div class="select-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="time" class="select" required id="id_time">
+                      	<!-- <option value="">Time</option> -->
+                        <option value="" selected>---------</option>
+                        <option value="8:00AM">8:00AM</option>
+                        <option value="9:00AM">9:00 AM</option>
+                        <option value="10:00AM">10:00 AM</option>
+                        <option value="11:00AM">11:00 AM</option>
+                        <option value="12:00PM">12:00 PM</option>
+                        <option value="1:00PM">1:00 PM</option>
+                        <option value="2:00PM">2:00 PM</option>
+                        <option value="3:00PM">3:00 PM</option>
+                        <option value="4:00PM">4:00 PM</option>
+                        <option value="5:00PM">5:00 PM</option>
+                        <option value="6:00PM">6:00 PM</option>
+                        <option value="7:00PM">7:00 PM</option>
+                      </select>
+                    </div>
 	                </div>
 	              </div>
 	              <div class="col-sm-4">
