@@ -104,7 +104,8 @@
     			</div>
     			<div class="col-md-6 color-3 p-4">
     				<h3 class="mb-2">Make an Appointment</h3>
-    				<form action="#" class="appointment-form">
+    				<form action="" class="appointment-form" method="">
+              {% csrf_token %}
 	            <div class="row">
 	            	<div class="col-sm-4">
 	                <div class="form-group">
@@ -112,7 +113,7 @@
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                       <select name="department" id="" class="form-control" required id="id_department">
                       	<!-- <option value="">Department</option> -->
-                        <option value="" selected>---------</option>
+                        <!-- <option value="" selected>---------</option> -->
                         <option value="Teeth Whitening">Teeth Whitening</option>
                         <option value="Teeth Cleaning">Teeth Cleaning</option>
                         <option value="Braces">Braces</option>
@@ -147,7 +148,7 @@
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                       <select name="time" class="select" required id="id_time">
                       	<!-- <option value="">Time</option> -->
-                        <option value="" selected>---------</option>
+                        <option value="">Time</option>
                         <option value="8:00AM">8:00AM</option>
                         <option value="9:00AM">9:00 AM</option>
                         <option value="10:00AM">10:00 AM</option>
@@ -167,7 +168,7 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-phone2"></span></div>
-	                  <input type="text" class="form-control" id="phone" placeholder="Phone">
+	                  <input type="text" name="phone" maxlength="20" class="textinput textInput" required id="id_phone" placeholder="Phone">
 	                </div>
 	              </div>
 	            </div>
