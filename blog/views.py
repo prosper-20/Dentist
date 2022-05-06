@@ -24,9 +24,9 @@ def detail(request, slug=None): # < here
     return render(request, 'blog/post_detail.html', {"post": post})
 
 
-class PostCommentView(LoginRequiredMixin, CreateView):
-    model = Comment
-    form_class = CommentForm
+# class PostCommentView(LoginRequiredMixin, CreateView):
+#     model = Comment
+#     form_class = CommentForm
     # success_url = "/"
     template_name = "blog/post_comment_form.html"
 
