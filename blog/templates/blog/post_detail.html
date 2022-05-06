@@ -110,7 +110,7 @@
                 {% for comment in post.comments.all %}
                 <li class="comment">
                   <div class="vcard bio">
-                    <img src="{{ post.comment.name.profile.image.url }}" alt="Image placeholder">
+                    <img src="/media/default.jpg" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
                     <h3>{{ comment.name }}</h3>

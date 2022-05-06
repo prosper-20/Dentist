@@ -21,7 +21,17 @@ class PostDetailView(DetailView):
 
 def detail(request, slug=None): # < here
     post = get_object_or_404(Post, slug=slug) # < here
-    return render(request, 'blog/post_detail.html', {"post": post})
+    if request.method == "POST":
+        name = request.POST["name"]
+        body = request.POST["body"]
+
+        new = Comment.objects.create(post=post, name=name, body=body)
+        new.save()
+        messages.success(request, "Comment saved")
+        return redirect("/")
+    else:
+
+        return render(request, 'blog/post_detail.html', {"post": post})
 
 
 # class PostCommentView(LoginRequiredMixin, CreateView):
@@ -39,19 +49,19 @@ def detail(request, slug=None): # < here
         return reverse_lazy('post_detail', kwargs={'slug': self.kwargs['slug']})
 
 
-def PostCommentView(request, slug=None):
-    post = get_object_or_404(Post, slug=slug)
-    if request.method == "POST":
-        name = request.POST["name"]
-        body = request.POST["body"]
+# def PostCommentView(request, slug=None):
+#     post = get_object_or_404(Post, slug=slug)
+#     if request.method == "POST":
+#         name = request.POST["name"]
+#         body = request.POST["body"]
 
-        new = Comment.objects.create(post=post, name=name, body=body)
-        new.save()
-        messages.success(request, "Comment saved")
-        return redirect('post_comments')
+#         new = Comment.objects.create(post=post, name=name, body=body)
+#         new.save()
+#         messages.success(request, "Comment saved")
+#         return redirect("/")
     
-    else:
-        return render(request, "blog/post_detail.html")
+#     else:
+#         return render(request, "blog/post_detail.html")
 
 
 
