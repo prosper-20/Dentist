@@ -84,4 +84,22 @@ def contact(request):
         return render(request, 'app/contact.html')
 
 
+# You added this for the make an appointment on the navbar
+def appointment_2(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        date = request.POST['date']
+        time = request.POST['time']
+        phone = request.POST['phone']
+
+        new = Appointment.objects.create(name=name,
+        email=email, date=date, time=time, phone=phone)
+        new.save()
+        messages.success(request, f"Hi {name}, your appointment has been scheduled!")
+        return redirect("/")
+    else:
+        return render(request, 'app/home.html')
+
+
 
