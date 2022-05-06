@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 # Create your views here.
 
@@ -36,6 +37,24 @@ class PostCommentView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse_lazy('post_detail', kwargs={'slug': self.kwargs['slug']})
+
+
+def PostCommentView(request, slug=None):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        name = request.POST["name"]
+        message = request.POST["message"]
+
+        new = Comment.objects.create(post=post, name=name, message=message)
+        new.save()
+        messages.success(request, "Comment saved")
+        return redirect('post_comments')
+    
+    else:
+        return render(request, "blog/post_detail.html")
+
+
+
 
 
 
