@@ -66,7 +66,5 @@ def appointment_2(request):
 def doctors(request):
     return render(request, 'app/doctors.html')
 
-def blog(request):
-    return render(request, 'app/blog.html')
 
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DentaCare - Free Bootstrap 4 Template by Colorlib</title>
+    <title>DentaBlog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -71,17 +71,19 @@
                         {% for post in posts %}
 							<div class="col-md-12 ftco-animate">
                             <div class="blog-entry">
-                            <a href="blog-single.html" class="block-20" style="background-image: url('/static/app/images/image_1.jpg');">
+                            <!-- <a href="blog-single.html" class="block-20" style="background-image: { post.image.url }"> -->
+                            <a href="" class="block-20" ><img src="{{post.image.url}}" alt=""></a>
+
                             </a>
                             <div class="text d-flex py-4">
                                 <div class="meta mb-3">
-                                <div><a href="#"></a></div>
-                                <div><a href="#">Admin</a></div>
+                                <div><a href="#">{{ post.date_posted }}</a></div>
+                                <div><a href="#">{{ post.author }}</a></div>
                                 <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                                 </div>
                                 <div class="desc pl-sm-3 pl-md-5">
-                                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                    <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
+                                    <p>{{ post.content }}</p>
                                     <p><a href="blog-single.html" class="btn btn-primary btn-outline-primary">Read more</a></p>
                                 </div>
                             </div>
