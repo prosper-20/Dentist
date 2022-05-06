@@ -63,3 +63,10 @@ def appointment_2(request):
         return render(request, 'app/home.html')
 
 
+def doctors(request):
+    return render(request, 'app/doctors.html')
+
+def blog(request):
+    return render(request, 'app/blog.html')
+
+
