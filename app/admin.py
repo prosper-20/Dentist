@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Services, Appointment
+from .models import Services, Appointment, Contact
 
 # Register your models here.
 
@@ -11,3 +11,9 @@ class AppointmentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Appointment, AppointmentAdmin)
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ["name", "email", "subject"]
+
+admin.site.register(Contact, ContactAdmin)
