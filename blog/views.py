@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -28,13 +29,13 @@ class PostCommentView(LoginRequiredMixin, CreateView):
     # success_url = "/"
     template_name = "blog/post_comment_form.html"
 
-    def form_valid(self, form):
-        form.instance.name = self.request.user
-        form.instance.post_id = self.kwargs['pk']
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     form.instance.name = self.request.user
+    #     form.instance.post_id = self.kwargs['pk']
+    #     return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('post_detail', kwargs={'pk': self.kwargs['pk']})
+        return reverse_lazy('post_detail', kwargs={'slug': self.kwargs['slug']})
 
 
 
