@@ -70,19 +70,27 @@
         <div class="row d-flex mb-5 contact-info">
           <div class="col-md-12 mb-4">
             <h2 class="h4">Contact Information</h2>
+            <!-- YOU JUST ADDED THIS FOR THE SUCCESS MESSAGE NOTIFICATION -->
+            {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
           </div>
           <div class="w-100"></div>
           <div class="col-md-3">
-            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p><span>Address:</span> 10 Fake Street, Off Fake Road, Fake, Lagos.</p>
           </div>
           <div class="col-md-3">
-            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+            <p><span>Phone:</span> <a href="tel://1234567920">+ 234 901 2345 678</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+            <p><span>Email:</span> <a href="mailto:info@yoursite.com">fake@gmail.com</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+            <p><span>Website</span> <a href="#">portfoliosite.com</a></p>
           </div>
         </div>
         <div class="row block-9">
