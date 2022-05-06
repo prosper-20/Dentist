@@ -43,9 +43,9 @@ def PostCommentView(request, slug=None):
     post = get_object_or_404(Post, slug=slug)
     if request.method == "POST":
         name = request.POST["name"]
-        message = request.POST["message"]
+        body = request.POST["body"]
 
-        new = Comment.objects.create(post=post, name=name, message=message)
+        new = Comment.objects.create(post=post, name=name, body=body)
         new.save()
         messages.success(request, "Comment saved")
         return redirect('post_comments')

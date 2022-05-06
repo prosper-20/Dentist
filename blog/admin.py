@@ -13,7 +13,7 @@ admin.site.register(Post, PostAdmin)
 
 class CommentAdmin(admin.ModelAdmin):
     model = Comment
-    list_display = ['name', 'message']
+    list_display = ['name', 'body']
 
 
 admin.site.register(Comment, CommentAdmin)
