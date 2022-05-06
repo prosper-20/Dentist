@@ -1,7 +1,8 @@
+from re import sub
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from app.models import Appointment
+from app.models import Appointment, Contact
 from .forms import AppointmentForm
 from django.contrib import messages
 # Create your views here.
@@ -65,6 +66,22 @@ def appointment_2(request):
 
 def doctors(request):
     return render(request, 'app/doctors.html')
+
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        subject = request.POST["subject"]
+        message = request.POST["message"]
+
+        new = Contact.objects.create(name=name,
+        email=email, subject=subject, message=message)
+        new.save()
+        messages.success(request, f"Hi {name}, your message has been received. Expect a reply soon!")
+        return redirect('contact')
+    else:
+        return render(request, 'app/contact.html')
 
 
 
