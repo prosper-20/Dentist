@@ -290,14 +290,16 @@
           </div>
         </div>
         <div class="row">
+          {% for doctor in doctors %}
         	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
-      				<div class="img mb-4" style="background-image: url(/static/app/images/person_5.jpg);"></div>
+      				<!-- <div class="img mb-4" style="background-image: url(/static/app/images/person_5.jpg);"></div> -->
+              <img class="img mb-4" src="{{ doctor.image.url }}" alt="">
       				<div class="info text-center">
-      					<h3><a href="teacher-single.html">Tom Smith</a></h3>
-      					<span class="position">Dentist</span>
+      					<h3><a href="teacher-single.html">{{ doctor.name }}</a></h3>
+      					<span class="position">{{ doctor.job }}</span>
       					<div class="text">
-	        				<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
+	        				<p>{{ doctor.quote}}</p>
 	        				<ul class="ftco-social">
 			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -308,6 +310,7 @@
       				</div>
         		</div>
         	</div>
+          {% endfor %}
         	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
       				<div class="img mb-4" style="background-image: url(/static/app/images/person_6.jpg);"></div>

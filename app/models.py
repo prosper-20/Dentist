@@ -62,3 +62,12 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class Doctor(models.Model):
+    name = models.CharField(max_length=100)
+    job = models.CharField(max_length=150)
+    quote = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="doctor_images")
+
+    def __str__(self):
+        return self.name

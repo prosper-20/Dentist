@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Services, Appointment, Contact
+from .models import Services, Appointment, Contact, Doctor
 
 # Register your models here.
 
@@ -17,3 +17,10 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ["name", "email", "subject"]
 
 admin.site.register(Contact, ContactAdmin)
+
+class DoctorAdmin(admin.ModelAdmin):
+    model = Doctor
+    list_display = ["name", "job"]
+
+
+admin.site.register(Doctor, DoctorAdmin)

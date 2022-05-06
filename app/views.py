@@ -1,15 +1,20 @@
 from re import sub
+from telnetlib import DO
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from app.models import Appointment, Contact
+from app.models import Appointment, Contact, Doctor
 from .forms import AppointmentForm
 from django.contrib import messages
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'app/home.html')
+    doctors = Doctor.objects.all()
+    context = {
+        "doctors": doctors
+    }
+    return render(request, 'app/home.html', context)
 
 def about(request):
     return render(request, 'app/about.html')
