@@ -113,14 +113,14 @@ def appointment_2(request):
 
 def newsletter(request):
     if request.method == "POST":
-        email = request.POST['email']
+        email = request.POST['usermail']
 
         new = Newsletter.objects.create(email-email)
         new.save()
         return redirect("/")
 
     else:
-        return render(request, 'app/home')
+        return render(request, 'app/home.html')
 
 
 
