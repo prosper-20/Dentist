@@ -13,4 +13,5 @@ urlpatterns = [
     path('appoint/', views.appointment_2, name="appoint"),
     path('doctors/', views.doctors, name="doctors"),
     path("", views.newsletter, name="home"),
+    path("tester/", views.newsletter2, name="tester")
 ]

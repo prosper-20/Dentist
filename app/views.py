@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 from app.models import Appointment, Contact, Doctor, Newsletter
 from blog.models import Post
-from .forms import AppointmentForm
+from .forms import AppointmentForm, NewsletterForm
 from django.contrib import messages
 # Create your views here.
 
@@ -123,4 +123,19 @@ def newsletter(request):
         return render(request, 'app/home.html')
 
 
+
+def newsletter2(request):
+    if request.method == "POST":
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get("email")
+            return redirect("/")
+    else:
+        form = NewsletterForm()
+    context = {
+        "form": form,
+    }
+    return render(request, "app/new.html", context)
+    
 

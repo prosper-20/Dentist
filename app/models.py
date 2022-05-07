@@ -76,4 +76,4 @@ class Newsletter(models.Model):
     usermail = models.EmailField()
 
     def __str__(self):
-        return self.email
+        return self.usermail
