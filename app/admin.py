@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Services, Appointment, Contact, Doctor
+from .models import Services, Appointment, Contact, Doctor, Newsletter
 
 # Register your models here.
 
@@ -24,3 +24,6 @@ class DoctorAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Doctor, DoctorAdmin)
+
+
+admin.site.register(Newsletter)

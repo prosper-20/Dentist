@@ -510,6 +510,7 @@
               <div class="row d-flex justify-content-center mt-5">
                 <div class="col-md-8">
                   <form action="" method="post" class="subscribe-form">
+                    {% csrf_token %}
                     <div class="form-group d-flex">
                       <input type="email" name="email" class="form-control" placeholder="Enter email address" required_id="id_email">
                       <input type="submit" value="Subscribe" class="submit px-3">
