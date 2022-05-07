@@ -58,7 +58,7 @@
           <div class="row slider-text align-items-center" data-scrollax-parent="true">
             <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
               <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Dentistry in a Calm and Relaxed Environment</h1>
-              <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Our excellent service, friendly team and state-of-the-art facility ensure you will receive the high quality, personalized Dental care.</p>
               <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
             </div>
           </div>
@@ -70,8 +70,8 @@
         <div class="container">
           <div class="row slider-text align-items-center" data-scrollax-parent="true">
             <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Achieve Your Desired Perfect Smile</h1>
-              <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Advacnced Dentisitry, High Qualtity Equipment, Comfortable Office</h1>
+              <p class="mb-4">Our excellent service, friendly team and state-of-the-art facility ensure you will receive the high quality, personalized Dental care</p>
               <p><a href="#" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
             </div>
           </div>
@@ -536,7 +536,7 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(/app/static/app/images/person_1.jpg)">
+                  <div class="user-img mb-5" style="background-image: url(/static/app/images/person_1.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -654,23 +654,26 @@
           </div>
         </div>
         <div class="row">
+          {% for post in posts %}
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url(/static/app/images/image_1.jpg);">
+              <!-- <a href="blog-single.html" class="block-20" style="background-image: url(/static/app/images/image_1.jpg);"> -->
+                <img class="block-20" src="{{ post.image.url }}" alt="">
               </a>
               <div class="text d-flex py-4">
                 <div class="meta mb-3">
-                  <div><a href="#">Sep. 20, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a href="#">{{ post.date_posted}}</a></div>
+                  <div><a href="#">{{ post.author}}</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a></div>
                 </div>
                 <div class="desc pl-3">
-	                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+	                <h3 class="heading"><a href="#">{{ post.content|truncatewords: 20}}</a></h3>
 	              </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 ftco-animate">
+          {% endfor %}
+          <!-- <div class="col-md-4 ftco-animate">
             <div class="blog-entry" data-aos-delay="100">
               <a href="blog-single.html" class="block-20" style="background-image: url(/static/app/images/image_2.jpg);">
               </a>
@@ -701,7 +704,7 @@
 	              </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

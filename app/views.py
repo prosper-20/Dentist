@@ -4,12 +4,14 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
 from app.models import Appointment, Contact, Doctor
+from blog.models import Post
 from .forms import AppointmentForm
 from django.contrib import messages
 # Create your views here.
 
 
 def home(request):
+    posts = Pos
     doctors = Doctor.objects.all()
     context = {
         "doctors": doctors
