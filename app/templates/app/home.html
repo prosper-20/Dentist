@@ -667,7 +667,7 @@
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a></div>
                 </div>
                 <div class="desc pl-3">
-	                <h3 class="heading"><a href="#">{{ post.content|truncatewords: 20}}</a></h3>
+	                <h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.content|truncatewords:20}}</a></h3>
 	              </div>
               </div>
             </div>
