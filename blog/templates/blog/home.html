@@ -72,7 +72,7 @@
 							<div class="col-md-12 ftco-animate">
                             <div class="blog-entry">
                             <!-- <a href="blog-single.html" class="block-20" style="background-image: { post.image.url }"> -->
-                            <a href="" class="block-20" ><img src="{{post.image.url}}" alt=""></a>
+                            <!-- <a href="" class="block-20" ><img src="{{post.image.url}}" alt=""></a> -->
 
                             </a>
                             <div class="text d-flex py-4">
@@ -82,9 +82,9 @@
                                 <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                                 </div>
                                 <div class="desc pl-sm-3 pl-md-5">
-                                    <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
-                                    <p>{{ post.content }}</p>
-                                    <p><a href="blog-single.html" class="btn btn-primary btn-outline-primary">Read more</a></p>
+                                    <h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                                    <p>{{ post.content|truncatewords:50 }}</p>
+                                    <p><a href="{{ post.get_absolute_url }}" class="btn btn-primary btn-outline-primary">Read more</a></p>
                                 </div>
                             </div>
                             </div>
