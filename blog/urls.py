@@ -5,7 +5,7 @@ from . import views
 from .views import PostListView,PostDetailView, detail
 
 urlpatterns = [
-    path("", PostListView.as_view(), name="home"),
+    path("", PostListView.as_view(), name="index"),
     path("<slug:slug>/", detail, name="detail"),
     # path('<slug:slug>/comment/', PostCommentView, name="post_comments"),
 
