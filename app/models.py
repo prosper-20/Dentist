@@ -77,3 +77,13 @@ class Newsletter(models.Model):
 
     def __str__(self):
         return self.usermail
+
+
+class Quote(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=100)
+    message = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name

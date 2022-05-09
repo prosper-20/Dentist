@@ -12,10 +12,12 @@ from django.contrib import messages
 
 def home(request):
     posts = Post.objects.all()
+    my_post = Post.objects.all()[:2]
     doctors = Doctor.objects.all()
     context = {
         "doctors": doctors,
-        "posts": posts
+        "posts": posts,
+        "my_post": my_post,
     }
     return render(request, 'app/home.html', context)
 
