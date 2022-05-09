@@ -19,9 +19,13 @@ def home(request):
         email = request.POST.get("email")
         phone = request.POST.get("phone")
         message = request.POST["message"]
+        # You added this for the subscription to news letter
+        usermail = request.POST["usermail"]
 
         quote = Quote.objects.create(quote_name=name, email=email, phone=phone, message=message)
         quote.save()
+        usermail = Newsletter.objects.create(usermail=usermail)
+        usermail.save()
         messages.success(request, "Your quote will be sent to your email soon")
         return redirect("index")
     
