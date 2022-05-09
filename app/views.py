@@ -33,7 +33,9 @@ def about(request):
     return render(request, 'app/about.html', {"my_post": my_post})
 
 def service(request):
-    return render(request, 'app/service.html')
+    my_post = Post.objects.all()[:2]
+    return render(request, 'app/service.html', {"my_post": my_post})
+
 
 def contact(request):
     return render(request, 'app/contact.html')
