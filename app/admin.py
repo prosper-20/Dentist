@@ -31,4 +31,7 @@ admin.site.register(Newsletter)
 
 class QuoteAdmin(admin.ModelAdmin):
     model = Quote
-    list_display = ["name", "email", "phone", "message"]
+    list_display = ["quote_name", "email", "phone", "message"]
+
+
+admin.site.register(Quote, QuoteAdmin)

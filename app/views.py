@@ -143,13 +143,13 @@ def newsletter2(request):
 
 def quote(request):
     if request.method == "POST":
-        name = request.POST["name"]
+        name = request.POST["quote_name"]
         email = request.POST["email"]
         phone = request.POST["phone"]
         message = request.POST["message"]
 
-        new = Quote.objects.create(name=name, email=email, phone=phone, message=message)
-        new.save()
+        quote = Quote.objects.create(name=name, email=email, phone=phone, message=message)
+        quote.save()
         messages.success(request, "Your quote will be sent to your email soon")
         return redirect("index")
     else:

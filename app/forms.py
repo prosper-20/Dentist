@@ -27,4 +27,4 @@ class QuoteForm(forms.ModelForm):
     class Meta:
         model = Quote
 
-        fields = ["name", "email", "phone", "message"]
+        fields = ["quote_name", "email", "phone", "message"]
