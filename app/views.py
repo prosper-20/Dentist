@@ -42,13 +42,15 @@ def service(request):
 
 
 def contact(request):
-    return render(request, 'app/contact.html')
+    my_post = Post.objects.all()[:2]
+    return render(request, 'app/contact.html', {"my_post": my_post})
 
 def price(request):
     return render(request, 'app/price.html')
 
 def testimonial(request):
-    return render(request, 'app/testimonial.html')
+    my_post = Post.objects.all()[:2]
+    return render(request, 'app/testimonial.html', {"my_post": my_post})
 
 def appointment(request):
     if request.method == "POST":
@@ -89,10 +91,13 @@ def appointment_2(request):
 
 
 def doctors(request):
-    return render(request, 'app/doctors.html')
+    my_post = Post.objects.all()[:2]
+    return render(request, 'app/doctors.html', {"my_post": my_post})
+
 
 
 def contact(request):
+    my_post = Post.objects.all()[:2]
     if request.method == "POST":
         name = request.POST["name"]
         email = request.POST["email"]
@@ -105,7 +110,7 @@ def contact(request):
         messages.success(request, f"Hi {name}, your message has been received. Expect a reply soon!")
         return redirect('contact')
     else:
-        return render(request, 'app/contact.html')
+        return render(request, 'app/contact.html', {"my_post":my_post})
 
 
 # You added this for the make an appointment on the navbar
