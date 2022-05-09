@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DentaBlog</title>
+    <title>P's Clinic | Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -219,10 +219,10 @@
 
             <div class="sidebar-box ftco-animate">
               <h3>Recent Blog</h3>
-              {% for post in my_posts %}
+              {% for a in my_post %}
               <div class="block-21 mb-4 d-flex">
                 <!-- <a class="blog-img mr-4" style="background-image: url(/static/app/images/image_1.jpg);"></a> -->
-                <img class="blog-img mr-4" src="{{ post.image.url }}" alt="">
+                <img class="blog-img mr-4" src="{{ a.image.url }}" alt="">
                 <div class="text">
                   <h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                   <div class="meta">

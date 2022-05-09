@@ -13,6 +13,8 @@ class PostListView(ListView):
     template_name = "blog/home.html"
     context_object_name = "posts"
     ordering = ["-date_posted"]
+    my_post = Post.objects.all()[:2]
+    extra_content = {"my_post": Post.objects.all()[:2]}
 
 
 class PostDetailView(DetailView):
