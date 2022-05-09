@@ -15,9 +15,9 @@ def home(request):
     my_post = Post.objects.all()[:2]
     doctors = Doctor.objects.all()
     if request.method == "POST":
-        name = request.POST["quote_name"]
-        email = request.POST["email"]
-        phone = request.POST.get["phone"]
+        name = request.POST.get("quote_name")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
         message = request.POST["message"]
 
         quote = Quote.objects.create(quote_name=name, email=email, phone=phone, message=message)
@@ -29,7 +29,8 @@ def home(request):
         return render(request, 'app/home.html', {"doctors": doctors, "posts": posts, "my_post":my_post})
 
 def about(request):
-    return render(request, 'app/about.html')
+    my_post = Post.objects.all()[:2]
+    return render(request, 'app/about.html', {"my_post": my_post})
 
 def service(request):
     return render(request, 'app/service.html')
