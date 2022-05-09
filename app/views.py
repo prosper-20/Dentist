@@ -14,12 +14,19 @@ def home(request):
     posts = Post.objects.all()
     my_post = Post.objects.all()[:2]
     doctors = Doctor.objects.all()
-    context = {
-        "doctors": doctors,
-        "posts": posts,
-        "my_post": my_post,
-    }
-    return render(request, 'app/home.html', context)
+    if request.method == "POST":
+        name = request.POST["quote_name"]
+        email = request.POST["email"]
+        phone = request.POST.get["phone"]
+        message = request.POST["message"]
+
+        quote = Quote.objects.create(quote_name=name, email=email, phone=phone, message=message)
+        quote.save()
+        messages.success(request, "Your quote will be sent to your email soon")
+        return redirect("index")
+    
+    else:
+        return render(request, 'app/home.html', {"doctors": doctors, "posts": posts, "my_post":my_post})
 
 def about(request):
     return render(request, 'app/about.html')
@@ -145,10 +152,10 @@ def quote(request):
     if request.method == "POST":
         name = request.POST["quote_name"]
         email = request.POST["email"]
-        phone = request.POST["phone"]
+        phone = request.POST.get["phone"]
         message = request.POST["message"]
 
-        quote = Quote.objects.create(name=name, email=email, phone=phone, message=message)
+        quote = Quote.objects.create(quote_name=name, email=email, phone=phone, message=message)
         quote.save()
         messages.success(request, "Your quote will be sent to your email soon")
         return redirect("index")
