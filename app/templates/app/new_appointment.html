@@ -50,6 +50,20 @@
 	              <span class="icon fa fa-lock"></span>
 	            </div> -->
                 <div class="form-group mb-3">
+                    <label class="label" for="department">Department</label>
+                    <div class="select-wrap">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="department" class="form-control appointment_time" required id="id_apartment">
+                            <!-- <option value="">Time</option> -->
+                            <option value="Teeth Whitening">Teeth Whitening</option>
+                            <option value="Teeth Cleaning">Teeth Cleaning</option>
+                            <option value="Braces">Braces</option>
+                            <option value="Modern Anesthetic">Modern Anesthetic</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="label" for="Time">Time</label>
                     <div class="select-wrap">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select name="time" class="form-control appointment_time" required id="id_time">
@@ -71,11 +85,13 @@
                       </div>
                 </div>
                 <div class="form-group mb-3">
-                    <input type="text" name="date" class="dateinput" required id="id_date" placeholder="YYYY/MM/DD">
+                    <label class="label" for="date">Date</label>
+                    <input type="text" name="date" class="form-control" placeholder="YYYY/MM/DD" required_id="id_date">
+                    <span class="icon fa fa-calendar"></span>
                 </div>
                 <div class="form-group mb-3">
                     <label class="label" for="phone">Phone</label>
-                    <input type="text" name="phone" class="form-control" placeholder="johndoe@gmail.com" required_id="id_phone">
+                    <input type="text" name="phone" class="form-control" placeholder="080 123 4567 890" required_id="id_phone">
                     <span class="icon fa fa-phone"></span>
                 </div>
 	            <div class="form-group">

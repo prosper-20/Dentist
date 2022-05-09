@@ -176,6 +176,20 @@ def quote(request):
 
 
 def new_appointment(request):
+    if request.method == "POST":
+        department = request.POST["department"]
+        name = request.POST["name"]
+        email = request.POST["email"]
+        time = request.POST["time"]
+        date = request.POST["date"]
+        phone = request.POST["phone"]
+
+        booking = Appointment.objects.create(department=department, name=name,
+        email=email, time=time, date=date, phone=phone)
+        booking.save()
+        messages.success(request, "Your appointment has been scheduled")
+        return redirect('/')
+
     return render(request, "app/new_appointment.html")
 
 

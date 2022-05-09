@@ -50,7 +50,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item bread-item" style="background-image: url('/static/app/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="slider-item bread-item" style="background-image: url('/static/app/base_img.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container" data-scrollax-parent="true">
           <div class="row slider-text align-items-end">
@@ -219,18 +219,21 @@
 
             <div class="sidebar-box ftco-animate">
               <h3>Recent Blog</h3>
+              {% for post in my_posts %}
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(/static/app/images/image_1.jpg);"></a>
+                <!-- <a class="blog-img mr-4" style="background-image: url(/static/app/images/image_1.jpg);"></a> -->
+                <img class="blog-img mr-4" src="{{ post.image.url }}" alt="">
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> {{ post.date_posted }}</a></div>
+                    <div><a href="#"><span class="icon-person"></span> {{ post.author }}</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> {{ post.comments.count }}</a></div>
                   </div>
                 </div>
               </div>
-              <div class="block-21 mb-4 d-flex">
+              {% endfor %}
+              <!-- <div class="block-21 mb-4 d-flex">
                 <a class="blog-img mr-4" style="background-image: url(/static/app/images/image_2.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
@@ -251,7 +254,7 @@
                     <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <div class="sidebar-box ftco-animate">
