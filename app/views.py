@@ -3,7 +3,7 @@ from telnetlib import DO
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from app.models import Appointment, Contact, Doctor, Newsletter
+from app.models import Appointment, Contact, Doctor, Newsletter, Quote
 from blog.models import Post
 from .forms import AppointmentForm, NewsletterForm
 from django.contrib import messages
@@ -139,5 +139,20 @@ def newsletter2(request):
         "form": form,
     }
     return render(request, "app/new.html", context)
-    
+
+
+def quote(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        phone = request.POST["phone"]
+        message = request.POST["message"]
+
+        new = Quote.objects.create(name=name, email=email, phone=phone, message=message)
+        new.save()
+        messages.success(request, "Your quote will be sent to your email soon")
+        return redirect("index")
+    else:
+        return render(request, "app/home.html")
+
 
