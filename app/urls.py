@@ -14,5 +14,6 @@ urlpatterns = [
     path('doctors/', views.doctors, name="doctors"),
     path("", views.newsletter, name="home"),
     path("tester/", views.newsletter2, name="tester"),
-    path("", views.quote, name="quote")
+    path("", views.quote, name="quote"),
+    path("new-appointment/", views.new_appointment, name="new_appointment")
 ]

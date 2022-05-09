@@ -175,3 +175,7 @@ def quote(request):
         return render(request, "app/home.html")
 
 
+def new_appointment(request):
+    return render(request, "app/new_appointment.html")
+
+
