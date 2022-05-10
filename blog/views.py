@@ -31,6 +31,7 @@ def detail(request, slug=None): # < here
         new.save()
         messages.success(request, "Comment saved")
         return redirect("/")
+        
     else:
 
         return render(request, 'blog/post_detail.html', {"post": post})
