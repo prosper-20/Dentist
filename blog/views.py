@@ -23,6 +23,7 @@ class PostDetailView(DetailView):
 
 def detail(request, slug=None): # < here
     post = get_object_or_404(Post, slug=slug) # < here
+    posts = Post.objects.all()[:2]
     if request.method == "POST":
         name = request.POST["name"]
         body = request.POST["body"]
@@ -34,7 +35,7 @@ def detail(request, slug=None): # < here
         
     else:
 
-        return render(request, 'blog/post_detail.html', {"post": post})
+        return render(request, 'blog/post_detail.html', {"post": post, "posts": posts})
 
 
 # class PostCommentView(LoginRequiredMixin, CreateView):
